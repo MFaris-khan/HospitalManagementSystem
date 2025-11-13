@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 11.375" name="HMS">
+  <DataContextMoniker Name="/HMSDataContext" />
+  <nestedChildShapes>
+    <classShape Id="4a58eec7-5ee8-4c2f-be41-387f175833ae" absoluteBounds="3.5, 0.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/HMSDataContext/appointment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="89b572a6-e17a-4749-8b37-8f6fe0f51daa" absoluteBounds="3.515, 1.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dd5011fb-9d6f-45fc-aa1a-5e555e79de67" absoluteBounds="3.5, 3.875, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/HMSDataContext/bill" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3d68ded6-22be-4aeb-987f-9ff7be75af49" absoluteBounds="3.515, 4.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a51719f6-8a0a-49a8-b355-951f1a3e5bda" absoluteBounds="0.75, 7.875, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/HMSDataContext/doctor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fbfa8a1d-b966-4f27-a95f-61c52d369774" absoluteBounds="0.765, 8.335, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e9227404-6081-48a6-90c0-14c508f5d48b" absoluteBounds="0.75, 3.125, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/HMSDataContext/patient" />
+      <nestedChildShapes>
+        <elementListCompartment Id="69217d17-de3f-4d2a-a2d1-59be5fde241f" absoluteBounds="0.765, 3.585, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6d592459-19ae-4237-a856-17e7a76898d7" absoluteBounds="3.75, 7.125, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/HMSDataContext/user" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c03859ad-5aa0-49a0-b3f4-437d89d92274" absoluteBounds="3.765, 7.585, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 9.52965413411458); (3.25 : 9.52965413411458); (3.25 : 3.44399251302083); (4.6562495 : 3.44399251302083); (4.6562495 : 2.90549967447917)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HMSDataContext/doctor/doctor_appointment" />
+      <nodes>
+        <classShapeMoniker Id="a51719f6-8a0a-49a8-b355-951f1a3e5bda" />
+        <classShapeMoniker Id="4a58eec7-5ee8-4c2f-be41-387f175833ae" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.21875 : 3.125); (1.21875 : 1.34375); (3.5 : 1.34375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HMSDataContext/patient/patient_appointment" />
+      <nodes>
+        <classShapeMoniker Id="e9227404-6081-48a6-90c0-14c508f5d48b" />
+        <classShapeMoniker Id="4a58eec7-5ee8-4c2f-be41-387f175833ae" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.85659912109375); (3.16666666666667 : 4.85659912109375 : JumpStart); (3.33333333333333 : 4.85659912109375 : JumpEnd); (3.5 : 4.85659912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HMSDataContext/patient/patient_bill" />
+      <nodes>
+        <classShapeMoniker Id="e9227404-6081-48a6-90c0-14c508f5d48b" />
+        <classShapeMoniker Id="dd5011fb-9d6f-45fc-aa1a-5e555e79de67" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="5fcebf15-e94e-42d9-946b-42620413d2cf" absoluteBounds="1.75, 2, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/HMSDataContext/license" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2a85ebe4-fb08-488b-b8e7-6ddfce6b875f" absoluteBounds="1.7650000000000001, 2.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
