@@ -199,19 +199,19 @@ namespace HMS_Solution.Forms.BillForm
             var section = doc.AddSection();
 
             // Clinic Header
-            var clinicTitle = section.AddParagraph("My Clinic Name");
+            var clinicTitle = section.AddParagraph("");// Add clinic Name here
             clinicTitle.Format.Font.Size = 18;
             clinicTitle.Format.Font.Bold = true;
             clinicTitle.Format.Alignment = MigraDoc.DocumentObjectModel.ParagraphAlignment.Center;
             clinicTitle.Format.SpaceAfter = "0.2cm";
 
-            var clinicAddress = section.AddParagraph("123 Main Street, City, Country | Phone: 123-456-7890");
+            var clinicAddress = section.AddParagraph("");// Add address and contact here
             clinicAddress.Format.Font.Size = 10;
             clinicAddress.Format.Alignment = MigraDoc.DocumentObjectModel.ParagraphAlignment.Center;
             clinicAddress.Format.SpaceAfter = "0.5cm";
 
             // Bill Title
-            var title = section.AddParagraph("Detailed Bill");
+            var title = section.AddParagraph("Bill Details");
             title.Format.Font.Size = 16;
             title.Format.Font.Bold = true;
             title.Format.Alignment = MigraDoc.DocumentObjectModel.ParagraphAlignment.Center;
@@ -311,7 +311,7 @@ namespace HMS_Solution.Forms.BillForm
             section.AddParagraph("\n");
 
             // Footer
-            var footer = section.Footers.Primary.AddParagraph("Thank you for visiting My Clinic. Get well soon!");
+            var footer = section.Footers.Primary.AddParagraph("");// any additional footer
             footer.Format.Font.Size = 10;
             footer.Format.Alignment = ParagraphAlignment.Center;
 
@@ -324,7 +324,7 @@ namespace HMS_Solution.Forms.BillForm
 
             string path = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
-                $"Bill_{tbPatientID.Text}_{DateTime.Now:yyyyMMddHHmmss}.pdf"
+                $"Bill_{tbPatientID.Text}_{tbPatientName.Text}_{DateTime.Now:yyyyMMddHHmmss}.pdf"
             );
             renderer.PdfDocument.Save(path);
 
