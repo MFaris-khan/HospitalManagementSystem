@@ -16,7 +16,7 @@ namespace HMS_Solution
                 HMSDataContext db = new HMSDataContext();
                 int? days = db.checkLicense();
 
-                if (days > 7)
+                if (days > 30)
                 {
                     DialogResult result = MessageBox.Show(
                         "Your license is expired. Please renew your license to continue. Want to renew?",

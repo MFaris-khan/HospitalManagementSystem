@@ -2,20 +2,6 @@
 -- Tables
 -- ========================
 
-CREATE TABLE users(
-    userID INT IDENTITY(1,1) PRIMARY KEY,
-    [name] VARCHAR(50) NOT NULL,
-    username VARCHAR(50) UNIQUE NOT NULL,
-    [password] VARCHAR(50) NOT NULL,
-    [role] VARCHAR(20) NOT NULL,
-    email VARCHAR(50),
-    phone VARCHAR(15),
-    [status] VARCHAR(10),
-    createdON DATETIME DEFAULT GETDATE()
-);
-
-insert into users (name, username, password, role) values ('Test User', 'test123', 'Test@123', 'admin');
-
 CREATE TABLE patients(
     patientID INT IDENTITY(1,1) PRIMARY KEY,
     [name] VARCHAR(50) NOT NULL,
@@ -29,7 +15,25 @@ CREATE TABLE patients(
     allergies VARCHAR(255),
     emergemcyContactName VARCHAR(50),
     emergemcyContactNumber VARCHAR(15),
-    dateOfRegistration DATETIME DEFAULT GETDATE()
+    dateOfRegistration DATETIME DEFAULT GETDATE(),
+    cb1 BIT DEFAULT 0,
+    cb2 BIT DEFAULT 0,
+    cb3 BIT DEFAULT 0,
+    cb4 BIT DEFAULT 0,
+    cb5 BIT DEFAULT 0,
+    cb6 BIT DEFAULT 0,
+    cb7 BIT DEFAULT 0,
+    cb8 BIT DEFAULT 0,
+    cb9 BIT DEFAULT 0,
+    cb10 BIT DEFAULT 0
+);
+
+CREATE TABLE PatientFiles (
+    fileID INT IDENTITY(1,1) PRIMARY KEY,
+    patientID INT NOT NULL FOREIGN KEY REFERENCES patients(patientID),
+    fileName VARCHAR(255) NOT NULL,
+    filePath VARCHAR(500) NOT NULL,
+    uploadedOn DATETIME DEFAULT GETDATE()
 );
 
 CREATE TABLE bills(
@@ -38,8 +42,32 @@ CREATE TABLE bills(
     patientID INT NOT NULL FOREIGN KEY REFERENCES patients(patientID),
     amount DECIMAL(18,2) NOT NULL,
     paymentMethod VARCHAR(20),
-    status VARCHAR(10)
+    status VARCHAR(20),
+    remaining DECIMAL(18,2),
+    paid DECIMAL(18,2)
 );
+
+
+create table installments(
+instID int primary key identity(1,1),
+billID int foreign key references bills(billID),
+amount decimal(18,2) not null,
+instDate datetime default getdate()
+);
+
+CREATE TABLE users(
+    userID INT IDENTITY(1,1) PRIMARY KEY,
+    [name] VARCHAR(50) NOT NULL,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    [password] VARCHAR(50) NOT NULL,
+    [role] VARCHAR(20) NOT NULL,
+    email VARCHAR(50),
+    phone VARCHAR(15),
+    [status] VARCHAR(10),
+    createdON DATETIME DEFAULT GETDATE()
+);
+
+insert into users (name, username, password, role, status) values ('Test User', 'test', 'Test@123', 'admin', 'active');
 
 CREATE TABLE doctors(
     doctorID INT IDENTITY(1,1) PRIMARY KEY,
@@ -72,7 +100,25 @@ CREATE TABLE license(
     updated DATE NOT NULL
 );
 
+create table [services](
+serviceID int primary key identity(1,1),
+serviceName varchar(50) not null,
+serviceAmount decimal(18,2) not null
+);
+
+create table detailedBill(
+detailID int primary key identity(1,1),
+billID int foreign key references bills(billID) not null,
+serviceID int not null,
+serviceName varchar(50) not null,
+cost decimal(18,2) not null,
+qty int default 1,
+totalCost decimal(18,2)
+);
+
+
 GO
+
 -- ========================
 -- Stored Procedures
 -- ========================
@@ -90,13 +136,23 @@ CREATE PROCEDURE insertIntoPatient
     @medicalHistory NVARCHAR(MAX) = NULL,
     @allergies VARCHAR(255) = NULL,
     @emergemcyContactName VARCHAR(50) = NULL,
-    @emergemcyContactNumber VARCHAR(15) = NULL
+    @emergemcyContactNumber VARCHAR(15) = NULL,
+    @cb1 BIT = 0,
+    @cb2 BIT = 0,
+    @cb3 BIT = 0,
+    @cb4 BIT = 0,
+    @cb5 BIT = 0,
+    @cb6 BIT = 0,
+    @cb7 BIT = 0,
+    @cb8 BIT = 0,
+    @cb9 BIT = 0,
+    @cb10 BIT = 0
     
 AS
 BEGIN
     SET NOCOUNT ON;
-    INSERT INTO patients (name, gender, dateOfBirth, phone, email, address, bloodGroup, medicalHistory, allergies, emergemcyContactName, emergemcyContactNumber)
-    VALUES (@name, @gender, @dateOfBirth, @phone, @email, @address, @bloodGroup, @medicalHistory, @allergies, @emergemcyContactName, @emergemcyContactNumber);
+    INSERT INTO patients (name, gender, dateOfBirth, phone, email, address, bloodGroup, medicalHistory, allergies, emergemcyContactName, emergemcyContactNumber, cb1, cb2, cb3, cb4, cb5, cb6, cb7, cb8, cb9, cb10)
+    VALUES (@name, @gender, @dateOfBirth, @phone, @email, @address, @bloodGroup, @medicalHistory, @allergies, @emergemcyContactName, @emergemcyContactNumber, @cb1, @cb2, @cb3, @cb4, @cb5, @cb6, @cb7, @cb8, @cb9, @cb10);
     return SCOPE_IDENTITY();
 END;
 GO
@@ -113,7 +169,18 @@ CREATE PROCEDURE updatePatients
     @medicalHistory NVARCHAR(MAX) = NULL,
     @allergies VARCHAR(255) = NULL,
     @emergemcyContactName VARCHAR(50) = NULL,
-    @emergemcyContactNumber VARCHAR(15) = NULL
+    @emergemcyContactNumber VARCHAR(15) = NULL,
+    @cb1 BIT = 0,
+    @cb2 BIT = 0,
+    @cb3 BIT = 0,
+    @cb4 BIT = 0,
+    @cb5 BIT = 0,
+    @cb6 BIT = 0,
+    @cb7 BIT = 0,
+    @cb8 BIT = 0,
+    @cb9 BIT = 0,
+    @cb10 BIT = 0
+
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -129,7 +196,18 @@ BEGIN
         medicalHistory = @medicalHistory,
         allergies = @allergies,
         emergemcyContactName = @emergemcyContactName,
-        emergemcyContactNumber = @emergemcyContactNumber
+        emergemcyContactNumber = @emergemcyContactNumber,
+        cb1 = @cb1,
+        cb2 = @cb2,
+        cb3 = @cb3,
+        cb4 = @cb4,
+        cb5 = @cb5,
+        cb6 = @cb6,
+        cb7 = @cb7,
+        cb8 = @cb8,
+        cb9 = @cb9,
+        cb10 = @cb10
+
     WHERE patientID = @patientID;
     RETURN @@ROWCOUNT;
 END;
@@ -164,10 +242,24 @@ CREATE PROCEDURE viewAllPatients
 AS
 BEGIN
     SET NOCOUNT ON;
-    SELECT TOP 500 * FROM patients ORDER BY patientID;
+    SELECT TOP 500 * FROM patients ORDER BY patientID desc;
     RETURN @@ROWCOUNT;
 END;
 GO
+
+CREATE PROCEDURE insertPatientFilePath
+    @patientID INT,
+    @fileName VARCHAR(255),
+    @filePath VARCHAR(500)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    INSERT INTO PatientFiles (patientID, fileName, filePath)
+    VALUES (@patientID, @fileName, @filePath);
+    RETURN SCOPE_IDENTITY();
+END;
+GO
+
 
 -- ------------- Doctor Procedures -------------
 
@@ -256,7 +348,7 @@ CREATE PROCEDURE viewAllDoctors
 AS
 BEGIN
     SET NOCOUNT ON;
-    SELECT TOP 500 * FROM doctors ORDER BY doctorID;
+    SELECT TOP 500 * FROM doctors ORDER BY doctorID desc;
     RETURN @@ROWCOUNT;
 END;
 GO
@@ -329,9 +421,30 @@ CREATE PROCEDURE viewAllAppointments
 AS
 BEGIN
     SET NOCOUNT ON;
-    SELECT TOP 500 * FROM appointments ORDER BY appointmentDate DESC, appointmentTime DESC;
+    SELECT TOP 500 * FROM appointments ORDER BY appointmentDate asc;
     RETURN @@ROWCOUNT;
 END;
+GO
+
+CREATE procedure viewAppointmentSingle
+@Date date
+as
+begin
+set nocount on;
+select * from appointments where appointmentDate = @Date
+return @@rowcount;
+end;
+GO
+
+CREATE procedure viewAppointmentRange
+@from date,
+@till date
+as
+begin
+set nocount on;
+select * from appointments where appointmentDate between @from and @till
+return @@rowcount;
+end;
 GO
 
 -- ------------- Bill Procedures -------------
@@ -340,13 +453,14 @@ CREATE PROCEDURE insertIntoBill
     @patientID INT,
     @amount DECIMAL(18,2),
     @paymentMethod VARCHAR(20) = NULL,
-    @status VARCHAR(10) = NULL
+    @status VARCHAR(20) = NULL,
+    @paid decimal(18,2)
     
 AS
 BEGIN
     SET NOCOUNT ON;
-    INSERT INTO bills (patientID, amount, paymentMethod, status)
-    VALUES (@patientID, @amount, @paymentMethod, @status);
+    INSERT INTO bills (patientID, amount, paymentMethod, status, remaining, paid)
+    VALUES (@patientID, @amount, @paymentMethod, @status, @amount-@paid, @paid);
     return SCOPE_IDENTITY();
 END;
 GO
@@ -356,7 +470,7 @@ CREATE PROCEDURE viewBill
 AS
 BEGIN
     SET NOCOUNT ON;
-    SELECT b.billID, b.billDate, b.patientID, b.amount, b.paymentMethod, b.status, p.name AS PatientName
+    SELECT b.billID, b.billDate, b.patientID, b.amount, b.paymentMethod, b.status, b.paid, b.remaining, p.name AS PatientName
     FROM bills b
     INNER JOIN patients p ON b.patientID = p.patientID
     WHERE b.billID = @billID;
@@ -383,10 +497,35 @@ CREATE PROCEDURE viewAllBills
 AS
 BEGIN
     SET NOCOUNT ON;
-    SELECT TOP 500 * FROM bills ORDER BY billDate DESC;
+    SELECT TOP 500 * FROM bills ORDER BY billID DESC;
     RETURN @@ROWCOUNT;
 END;
 GO
+
+
+
+create procedure payInstallment
+    @billID int,
+    @amount decimal(18,2)
+AS
+BEGIN
+    set nocount on;
+    insert into installments (billID, amount) values (@billID, @amount) update bills set remaining = remaining-@amount, paid = paid + @amount where billID = @billID;
+    return @@rowcount;
+end;
+GO
+
+
+create procedure installmentHistory
+    @billID int
+AS
+BEGIN
+    set nocount on;
+    select * from installments where billID = @billID;
+    return @@rowcount;
+END;
+GO
+
 
 -- ------------- User Procedures -------------
 
@@ -570,4 +709,84 @@ BEGIN
 
     RETURN @days;
 END;
+GO
+
+-- Services procedures --
+
+create procedure insertIntoServices
+@serviceName varchar(50),
+@serviceAmount decimal(18,2)
+as
+begin
+    set nocount on;
+    insert into [services](serviceName, serviceAmount) values (@serviceName, @serviceAmount);
+    return scope_identity();
+end;
+GO
+
+create procedure updateServices
+@serviceID int,
+@serviceName varchar(50),
+@serviceAmount decimal(18,2)
+as
+begin
+    set nocount on;
+    update [services] set serviceName = @serviceName, serviceAmount = @serviceAmount where serviceID = @serviceID;
+    return @@rowcount;
+end;
+GO
+
+create procedure deleteServices
+@serviceID int
+as
+begin
+    set nocount on;
+    delete from [services] where serviceID = @serviceID;
+    return @@rowcount;
+end;
+GO
+
+create procedure allServices
+as
+begin
+    set nocount on;
+    select * from [services] order by serviceID asc
+    return @@rowcount;
+end;
+GO
+
+create procedure searchServiceName
+@servName varchar(50)
+as
+begin
+    set nocount on;
+    select * from [services] where serviceName like @servName + '%';
+    return @@rowcount;
+end;
+GO
+
+--- Detailed Bill Procedures --
+
+create procedure insertIntoDetailedBill
+@billID int,
+@servID int,
+@servName varchar(50),
+@unitPrice decimal(18,2),
+@qty int
+as
+begin
+    set nocount on;
+    insert into detailedBill(billID, serviceID, serviceName, cost, qty, totalCost) values (@billID, @servID, @servName, @unitPrice, @qty, (@unitPrice*@qty));
+    return @@rowcount;
+end;
+GO
+
+create procedure getDetailedBill
+@billID int
+as
+begin
+    set nocount on;
+    select * from detailedBill where billID = @billID;
+    return @@rowcount;
+end;
 GO
