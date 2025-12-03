@@ -1,0 +1,62 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="HMS_Solution.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="HMSConnectionString1" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionString&gt;Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=HMS;Integrated Security=True;Encrypt=True&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=HMS;Integrated Security=True;Encrypt=True</Value>
+    </Setting>
+    <Setting Name="HMSConnectionString2" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionString&gt;Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\bin\Debug\HMS.mdf;Integrated Security=True;Encrypt=True&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\bin\Debug\HMS.mdf;Integrated Security=True;Encrypt=True</Value>
+    </Setting>
+    <Setting Name="HMSConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionString&gt;Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\HMS.mdf;Integrated Security=True;Connect Timeout=30;TrustServerCertificate=True&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\HMS.mdf;Integrated Security=True;Connect Timeout=30;TrustServerCertificate=True</Value>
+    </Setting>
+    <Setting Name="C__USERS_USER1_MUSIC_HMS_PROJECT_HMS_SOLUTION_HMS_SOLUTION_BIN_DEBUG_HMS_MDFConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionString&gt;Data Source=(localDB)\MSSQLLocalDB;Initial Catalog="C:\USERS\USER1\MUSIC\HMS PROJECT\HMS_SOLUTION\HMS_SOLUTION\BIN\DEBUG\HMS.MDF";Integrated Security=True&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=(localDB)\MSSQLLocalDB;Initial Catalog="C:\USERS\USER1\MUSIC\HMS PROJECT\HMS_SOLUTION\HMS_SOLUTION\BIN\DEBUG\HMS.MDF";Integrated Security=True</Value>
+    </Setting>
+    <Setting Name="HMSConnectionString3" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionString&gt;Data Source=(localDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\bin\Debug\HMS.mdf;Integrated Security=True;Encrypt=True;TrustServerCertificate=True&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=(localDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\bin\Debug\HMS.mdf;Integrated Security=True;Encrypt=True;TrustServerCertificate=True</Value>
+    </Setting>
+    <Setting Name="HMSConnectionString4" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionString&gt;Data Source=(localDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\bin\Debug\HMS.mdf;Integrated Security=True;TrustServerCertificate=True&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=(localDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\bin\Debug\HMS.mdf;Integrated Security=True;TrustServerCertificate=True</Value>
+    </Setting>
+    <Setting Name="HMSConnectionString5" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionString&gt;Data Source=(localDB)\MSSQLLocalDB;Initial Catalog=HMS;Integrated Security=True&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=(localDB)\MSSQLLocalDB;Initial Catalog=HMS;Integrated Security=True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

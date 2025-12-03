@@ -1,0 +1,24 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build output
+bin/
+obj/
+
+# NuGet packages
+packages/
+
+# Local database files
+*.mdf
+*.ldf
+
+# Logs and temp files
+*.log
+*.tmp
+*.temp
+
+# OS generated files
+Thumbs.db
+Desktop.ini

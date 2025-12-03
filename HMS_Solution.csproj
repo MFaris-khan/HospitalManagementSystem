@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4A81F127-8388-4B55-802B-3A9F59134715}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>HMS_Solution</RootNamespace>
+    <AssemblyName>HMS_Solution</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'new|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\new\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'new|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\new\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationIcon>Resources\HMS_LOGO.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=8.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.8.0.1\lib\net462\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=8.0.0.2, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.8.0.2\lib\net462\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=8.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.8.0.1\lib\net462\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=8.0.0.2, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\lib\net462\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=8.0.0.2, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.8.0.2\lib\net462\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.8.0.0\lib\net462\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="MigraDoc.DocumentObjectModel, Version=6.2.3.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp-MigraDoc.6.2.3\lib\netstandard2.0\MigraDoc.DocumentObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="MigraDoc.Rendering, Version=6.2.3.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp-MigraDoc.6.2.3\lib\netstandard2.0\MigraDoc.Rendering.dll</HintPath>
+    </Reference>
+    <Reference Include="MigraDoc.RtfRendering, Version=6.2.3.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp-MigraDoc.6.2.3\lib\netstandard2.0\MigraDoc.RtfRendering.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp, Version=6.2.3.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.6.2.3\lib\netstandard2.0\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.BarCodes, Version=6.2.3.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.6.2.3\lib\netstandard2.0\PdfSharp.BarCodes.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting, Version=6.2.3.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.6.2.3\lib\netstandard2.0\PdfSharp.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Cryptography, Version=6.2.3.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.6.2.3\lib\netstandard2.0\PdfSharp.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Quality, Version=6.2.3.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.6.2.3\lib\netstandard2.0\PdfSharp.Quality.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Shared, Version=6.2.3.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.6.2.3\lib\netstandard2.0\PdfSharp.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Snippets, Version=6.2.3.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.6.2.3\lib\netstandard2.0\PdfSharp.Snippets.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.System, Version=6.2.3.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.6.2.3\lib\netstandard2.0\PdfSharp.System.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.WPFonts, Version=6.2.3.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.6.2.3\lib\netstandard2.0\PdfSharp.WPFonts.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.8.0.1\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Pkcs, Version=8.0.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Pkcs.8.0.1\lib\net462\System.Security.Cryptography.Pkcs.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL\AppointmentService.cs" />
+    <Compile Include="BLL\BillingService.cs" />
+    <Compile Include="BLL\DoctorService.cs" />
+    <Compile Include="BLL\PatientService.cs" />
+    <Compile Include="BLL\UserService.cs" />
+    <Compile Include="DAL\AppointmentRepository.cs" />
+    <Compile Include="DAL\BillingRepository.cs" />
+    <Compile Include="DAL\DoctorRepository.cs" />
+    <Compile Include="DAL\PatientRepository.cs" />
+    <Compile Include="DAL\UserRepository.cs" />
+    <Compile Include="Forms\AppointmentForm\ADDAppointmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AppointmentForm\ADDAppointmentForm.Designer.cs">
+      <DependentUpon>ADDAppointmentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AppointmentForm\ALLAppointments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AppointmentForm\ALLAppointments.Designer.cs">
+      <DependentUpon>ALLAppointments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AppointmentForm\DELETEAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AppointmentForm\DELETEAppointment.Designer.cs">
+      <DependentUpon>DELETEAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AppointmentForm\SearchByAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AppointmentForm\SearchByAppointment.Designer.cs">
+      <DependentUpon>SearchByAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AppointmentForm\UPDATEAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AppointmentForm\UPDATEAppointment.Designer.cs">
+      <DependentUpon>UPDATEAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AppointmentForm\VIEWAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AppointmentForm\VIEWAppointment.Designer.cs">
+      <DependentUpon>VIEWAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BillForm\ADDService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BillForm\ADDService.Designer.cs">
+      <DependentUpon>ADDService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BillForm\ALLBills.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BillForm\ALLBills.Designer.cs">
+      <DependentUpon>ALLBills.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BillForm\ALLServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BillForm\ALLServices.Designer.cs">
+      <DependentUpon>ALLServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BillForm\DELETEService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BillForm\DELETEService.Designer.cs">
+      <DependentUpon>DELETEService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BillForm\VIEWBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BillForm\VIEWBill.Designer.cs">
+      <DependentUpon>VIEWBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BillForm\UPDATEService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BillForm\UPDATEService.Designer.cs">
+      <DependentUpon>UPDATEService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DataBaseHelper\DatabaseHelper.cs" />
+    <Compile Include="Forms\DoctorForm\ADDDoctorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DoctorForm\ADDDoctorForm.Designer.cs">
+      <DependentUpon>ADDDoctorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DoctorForm\ALLDoctors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DoctorForm\ALLDoctors.Designer.cs">
+      <DependentUpon>ALLDoctors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DoctorForm\DELETEDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DoctorForm\DELETEDoctor.Designer.cs">
+      <DependentUpon>DELETEDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DoctorForm\UPDATEDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DoctorForm\UPDATEDoctor.Designer.cs">
+      <DependentUpon>UPDATEDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DoctorForm\VIEWDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DoctorForm\VIEWDoctor.Designer.cs">
+      <DependentUpon>VIEWDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormHelper\FormHelper.cs" />
+    <Compile Include="Forms\LoginForm\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoginForm\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForm\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PatientForm\ADDPatientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PatientForm\ADDPatientForm.Designer.cs">
+      <DependentUpon>ADDPatientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PatientForm\ALLPatients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PatientForm\ALLPatients.Designer.cs">
+      <DependentUpon>ALLPatients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PatientForm\DELETEPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PatientForm\DELETEPatient.Designer.cs">
+      <DependentUpon>DELETEPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PatientForm\UPDATEPatientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PatientForm\UPDATEPatientForm.Designer.cs">
+      <DependentUpon>UPDATEPatientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PatientForm\VIEWPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PatientForm\VIEWPatient.Designer.cs">
+      <DependentUpon>VIEWPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UpdateLicense\UpdateLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UpdateLicense\UpdateLicense.Designer.cs">
+      <DependentUpon>UpdateLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserForm\ADDUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserForm\ADDUserForm.Designer.cs">
+      <DependentUpon>ADDUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserForm\ALLUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserForm\ALLUsers.Designer.cs">
+      <DependentUpon>ALLUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserForm\DELETEUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserForm\DELETEUsers.Designer.cs">
+      <DependentUpon>DELETEUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserForm\UPDATEUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserForm\UPDATEUsers.Designer.cs">
+      <DependentUpon>UPDATEUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserForm\VIEWUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserForm\VIEWUsers.Designer.cs">
+      <DependentUpon>VIEWUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HMS.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HMS.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Forms\BillForm\ADDBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BillForm\ADDBill.Designer.cs">
+      <DependentUpon>ADDBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SimpleFontResolver.cs" />
+    <EmbeddedResource Include="Forms\AppointmentForm\ADDAppointmentForm.resx">
+      <DependentUpon>ADDAppointmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AppointmentForm\ALLAppointments.resx">
+      <DependentUpon>ALLAppointments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AppointmentForm\DELETEAppointment.resx">
+      <DependentUpon>DELETEAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AppointmentForm\SearchByAppointment.resx">
+      <DependentUpon>SearchByAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AppointmentForm\UPDATEAppointment.resx">
+      <DependentUpon>UPDATEAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AppointmentForm\VIEWAppointment.resx">
+      <DependentUpon>VIEWAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BillForm\ADDService.resx">
+      <DependentUpon>ADDService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BillForm\ALLBills.resx">
+      <DependentUpon>ALLBills.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BillForm\ALLServices.resx">
+      <DependentUpon>ALLServices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BillForm\DELETEService.resx">
+      <DependentUpon>DELETEService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BillForm\VIEWBill.resx">
+      <DependentUpon>VIEWBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BillForm\UPDATEService.resx">
+      <DependentUpon>UPDATEService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DoctorForm\ADDDoctorForm.resx">
+      <DependentUpon>ADDDoctorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DoctorForm\ALLDoctors.resx">
+      <DependentUpon>ALLDoctors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DoctorForm\DELETEDoctor.resx">
+      <DependentUpon>DELETEDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DoctorForm\UPDATEDoctor.resx">
+      <DependentUpon>UPDATEDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DoctorForm\VIEWDoctor.resx">
+      <DependentUpon>VIEWDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoginForm\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForm\MainForm.en-PK.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForm\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PatientForm\ADDPatientForm.resx">
+      <DependentUpon>ADDPatientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PatientForm\ALLPatients.resx">
+      <DependentUpon>ALLPatients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PatientForm\DELETEPatient.resx">
+      <DependentUpon>DELETEPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PatientForm\UPDATEPatientForm.resx">
+      <DependentUpon>UPDATEPatientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PatientForm\VIEWPatient.resx">
+      <DependentUpon>VIEWPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UpdateLicense\UpdateLicense.resx">
+      <DependentUpon>UpdateLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserForm\ADDUserForm.resx">
+      <DependentUpon>ADDUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserForm\ALLUsers.resx">
+      <DependentUpon>ALLUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserForm\DELETEUsers.resx">
+      <DependentUpon>DELETEUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserForm\UPDATEUsers.resx">
+      <DependentUpon>UPDATEUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserForm\VIEWUsers.resx">
+      <DependentUpon>VIEWUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Forms\BillForm\ADDBill.resx">
+      <DependentUpon>ADDBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="HMS.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>HMS.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HMS.dbml.layout">
+      <DependentUpon>HMS.dbml</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\HMS_LOGO.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loginScreen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MainBackground1.jpg" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
