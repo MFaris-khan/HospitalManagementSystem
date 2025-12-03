@@ -30,11 +30,14 @@ Install SQL Server LocalDB 2022
 Download and install from Microsoft’s official site if not already installed.
 
 Setup LocalDB
-Open Command Prompt and run:
+Open Command Prompt and run one by one:
 
 sqllocaldb stop MSSQLLocalDB
+
 sqllocaldb delete MSSQLLocalDB
+
 sqllocaldb create MSSQLLocalDB
+
 sqllocaldb start MSSQLLocalDB
 
 
