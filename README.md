@@ -29,7 +29,8 @@ PDFsharp / MigraDoc 6.2.3
 Install SQL Server LocalDB 2022
 Download and install from Microsoft’s official site if not already installed.
 
-Setup LocalDB
+**Setup LocalDB**
+
 Open Command Prompt and run one by one:
 
 sqllocaldb stop MSSQLLocalDB
@@ -42,6 +43,7 @@ sqllocaldb start MSSQLLocalDB
 
 
 **Database Setup**
+
 Place the HMS.sql file in the same folder as the executable:
 
 bin/Debug/HMS.exe
