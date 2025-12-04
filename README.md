@@ -60,6 +60,8 @@ Open HMS.exe and start managing the hospital.
 
 **Usage**
 
+Default username/password: test / Test@123
+
 Navigate through the tabs to manage patients, doctors, users, appointments, and bills.
 
 Attach files when updating patient records.
