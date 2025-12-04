@@ -16,7 +16,7 @@ namespace HMS_Solution
                 HMSDataContext db = new HMSDataContext();
                 int? days = db.checkLicense();
 
-                if (days > 30)
+                if (days > 30) // This will check if there are any licenses? If yes it must be less than 30 days if greater, program will not start.
                 {
                     DialogResult result = MessageBox.Show(
                         "Your license is expired. Please renew your license to continue. Want to renew?",
@@ -33,7 +33,7 @@ namespace HMS_Solution
 
                     return false;
                 }
-                else if (days == -1 || days == null)
+                else if (days == -1 || days == null) // If there is no license already it will add a license with current date which will be check by above main if statement
                 {
                     license l = new license
                     {
